@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.parser.mapper.ReportPipeHolderMapper" >
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.ReportPipeHolder" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" property="uuid" jdbcType="CHAR" />
+    <result column="REPORT_UUID" property="reportUuid" jdbcType="CHAR" />
+    <result column="SHEET_UUID" property="sheetUuid" jdbcType="CHAR" />
+    <result column="PROJECT_NAME" property="projectName" jdbcType="VARCHAR" />
+    <result column="PORTFOLIO_NUM" property="portfolioNum" jdbcType="INTEGER" />
+    <result column="PORTFOLIO_ASSETS" property="portfolioAssets" jdbcType="DECIMAL" />
+    <result column="RETURN_ON_INVESTMENT" property="returnOnInvestment" jdbcType="DECIMAL" />
+    <result column="INVESTMENT_MANAGEMENT_FEE" property="investmentManagementFee" jdbcType="DECIMAL" />
+    <result column="INVESTMENT_MANAGEMENT_RISK_RESERVE" property="investmentManagementRiskReserve" jdbcType="DECIMAL" />
+  </resultMap>
+</mapper>

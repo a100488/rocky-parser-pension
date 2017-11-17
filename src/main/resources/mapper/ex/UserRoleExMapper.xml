@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.account.mapper.UserRoleExMapper" >
+    <resultMap id="BaseResultMap" type="com.guige.account.pojo.entity.UserRole" extends="com.guige.account.mapper.UserRoleMapper.BaseResultMap">
+  </resultMap>
+
+ <select id="findUserRoles" resultMap="BaseResultMap">
+    select 
+  *
+    from t_user_role
+    <trim prefix="where" prefixOverrides="and">
+      <if test="compUuid != null" >
+        AND comp_uuid = #{compUuid,jdbcType=CHAR}
+      </if>
+       <if test="userUuid != null" >
+        AND user_uuid= #{userUuid,jdbcType=CHAR}
+      </if>
+      <if test="roleUuid != null" >
+        AND role_uuid = #{roleUuid,jdbcType=CHAR}
+      </if>
+      <if test="deleteFlag != null">
+		AND delete_flag = #{deleteFlag,jdbcType=BIT}
+	</if>
+      </trim>
+  </select>
+
+
+    <update id="updateUserUuid" parameterType="java.lang.String" >
+        update t_user_role
+        set
+            USER_UUID = #{newUserUuid,jdbcType=CHAR},
+            UPDATE_TIME = now()
+        where COMP_UUID = #{compUuid,jdbcType=CHAR}
+          and USER_UUID = #{oldUserUuid,jdbcType=CHAR}
+    </update>
+
+</mapper>

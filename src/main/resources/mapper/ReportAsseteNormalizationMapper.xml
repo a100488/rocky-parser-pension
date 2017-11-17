@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.parser.mapper.ReportAsseteNormalizationMapper" >
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.ReportAsseteNormalization" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" property="uuid" jdbcType="CHAR" />
+    <result column="REPORT_UUID" property="reportUuid" jdbcType="CHAR" />
+    <result column="SHEET_UUID" property="sheetUuid" jdbcType="CHAR" />
+    <result column="PROD_CD" property="prodCd" jdbcType="VARCHAR" />
+    <result column="PROD_NAME" property="prodName" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="DATE" />
+    <result column="HAPPEN_DATE" property="happenDate" jdbcType="DATE" />
+    <result column="SAME_DAY_MONEY" property="sameDayMoney" jdbcType="DOUBLE" />
+    <result column="SAME_DAY_TOTAL_SHARE" property="sameDayTotalShare" jdbcType="VARCHAR" />
+    <result column="PRE_TOTAL_SHARE" property="preTotalShare" jdbcType="INTEGER" />
+    <result column="PRE_DAY_MONEY" property="preDayMoney" jdbcType="DOUBLE" />
+  </resultMap>
+</mapper>

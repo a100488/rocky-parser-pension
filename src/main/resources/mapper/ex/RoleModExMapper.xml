@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.account.mapper.RoleModExMapper">
+	<resultMap id="BaseResultMap" type="com.guige.account.pojo.entity.RoleMod"
+		extends="com.guige.account.mapper.RoleModMapper.BaseResultMap">
+	</resultMap>
+
+	<select id="findRoleMods" resultMap="BaseResultMap">
+		select
+		*
+		from t_role_mod
+		<trim prefix="where" prefixOverrides="and">
+			<if test="compUuid != null">
+				AND comp_uuid = #{compUuid,jdbcType=CHAR}
+			</if>
+			<if test="roleUuid != null">
+				AND role_uuid = #{roleUuid,jdbcType=CHAR}
+			</if>
+			<if test="moduleUuid != null">
+				AND module_uuid = #{moduleUuid,jdbcType=CHAR}
+			</if>
+			<if test="enable != null">
+				AND enable = #{enable,jdbcType=BIT}
+			</if>
+			<if test="deleteFlag != null">
+				AND delete_flag = #{deleteFlag,jdbcType=BIT}
+			</if>
+		</trim>
+	</select>
+</mapper>

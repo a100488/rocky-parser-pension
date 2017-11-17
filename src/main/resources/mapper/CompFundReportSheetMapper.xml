@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.parser.mapper.CompFundReportSheetMapper" >
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.CompFundReportSheet" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" property="uuid" jdbcType="CHAR" />
+    <result column="REPORT_UUID" property="reportUuid" jdbcType="CHAR" />
+    <result column="FILLING_UNIT" property="fillingUnit" jdbcType="VARCHAR" />
+    <result column="HEAD_UNIT" property="headUnit" jdbcType="VARCHAR" />
+    <result column="FORM_HOLDER" property="formHolder" jdbcType="VARCHAR" />
+    <result column="REPORT_DATE" property="reportDate" jdbcType="DATE" />
+    <result column="REPORT_DEADLINE" property="reportDeadline" jdbcType="DATE" />
+    <result column="REPORT_TYPE" property="reportType" jdbcType="CHAR" />
+  </resultMap>
+</mapper>

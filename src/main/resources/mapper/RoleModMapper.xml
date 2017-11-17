@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.account.mapper.RoleModMapper" >
+  <resultMap id="BaseResultMap" type="com.guige.account.pojo.entity.RoleMod" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ROLE_UUID" property="roleUuid" jdbcType="CHAR" />
+    <id column="COMP_UUID" property="compUuid" jdbcType="CHAR" />
+    <id column="MODULE_UUID" property="moduleUuid" jdbcType="CHAR" />
+    <result column="ENABLE" property="enable" jdbcType="BIT" />
+    <result column="INSERT_USER" property="insertUser" jdbcType="CHAR" />
+    <result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_USER" property="updateUser" jdbcType="CHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="DELETE_FLAG" property="deleteFlag" jdbcType="BIT" />
+  </resultMap>
+</mapper>

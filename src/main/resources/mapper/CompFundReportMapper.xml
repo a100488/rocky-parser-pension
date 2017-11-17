@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guige.parser.mapper.CompFundReportMapper">
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.CompFundReport">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" jdbcType="CHAR" property="uuid" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="COMP_NAME" jdbcType="VARCHAR" property="compName" />
+    <result column="DATE" jdbcType="VARCHAR" property="date" />
+    <result column="CREATE_USER" jdbcType="CHAR" property="createUser" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_USER" jdbcType="CHAR" property="updateUser" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="DELETE_FLAG" jdbcType="BIT" property="deleteFlag" />
+    <result column="FILENAME" jdbcType="LONGVARCHAR" property="filename" />
+  </resultMap>
+
+</mapper>

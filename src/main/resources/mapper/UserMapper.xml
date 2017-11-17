@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guige.account.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.guige.account.pojo.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" jdbcType="CHAR" property="uuid" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="SALT" jdbcType="VARCHAR" property="salt" />
+    <result column="IS_ACTIVE" jdbcType="BIT" property="isActive" />
+    <result column="CRYPT_VER" jdbcType="INTEGER" property="cryptVer" />
+    <result column="USER_PHOTO" jdbcType="CHAR" property="userPhoto" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SHOW_NAME" jdbcType="VARCHAR" property="showName" />
+    <result column="ENGLISH_NAME" jdbcType="VARCHAR" property="englishName" />
+    <result column="SPELLING" jdbcType="VARCHAR" property="spelling" />
+    <result column="FIRST_LETTER" jdbcType="VARCHAR" property="firstLetter" />
+    <result column="GENDER" jdbcType="CHAR" property="gender" />
+    <result column="CITIZEN_SHIP" jdbcType="CHAR" property="citizenShip" />
+    <result column="ID_TYPE" jdbcType="CHAR" property="idType" />
+    <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber" />
+    <result column="ID_NUMBER_FORWARD_FILE" jdbcType="CHAR" property="idNumberForwardFile" />
+    <result column="ID_NUMBER_BACK_FILE" jdbcType="CHAR" property="idNumberBackFile" />
+    <result column="BIRTHDAY" jdbcType="DATE" property="birthday" />
+    <result column="ZODIAC" jdbcType="VARCHAR" property="zodiac" />
+    <result column="BLOOD_TYPE" jdbcType="VARCHAR" property="bloodType" />
+    <result column="NATIONALITY" jdbcType="CHAR" property="nationality" />
+    <result column="POLI_STATUS" jdbcType="CHAR" property="poliStatus" />
+    <result column="NATI_PLACE" jdbcType="VARCHAR" property="natiPlace" />
+    <result column="REGI_CITY" jdbcType="VARCHAR" property="regiCity" />
+    <result column="REGI_PROPERTY" jdbcType="CHAR" property="regiProperty" />
+    <result column="MARI_STATUS" jdbcType="CHAR" property="mariStatus" />
+    <result column="FERT_MEMO" jdbcType="VARCHAR" property="fertMemo" />
+    <result column="FERT_STATUS" jdbcType="CHAR" property="fertStatus" />
+    <result column="CONTACT_TELE" jdbcType="VARCHAR" property="contactTele" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="WEIXIN" jdbcType="VARCHAR" property="weixin" />
+    <result column="ADDENDA_PROV_FUND_ACCOUNT" jdbcType="VARCHAR" property="addendaProvFundAccount" />
+    <result column="PROV_FUND_ACCOUNT" jdbcType="VARCHAR" property="provFundAccount" />
+    <result column="PERSONNEL_FILE_LOCATION" jdbcType="VARCHAR" property="personnelFileLocation" />
+    <result column="SOCIAL_ACCOUNT" jdbcType="VARCHAR" property="socialAccount" />
+    <result column="RESI_PERMIT" jdbcType="CHAR" property="resiPermit" />
+    <result column="REGI_ADDRESS" jdbcType="VARCHAR" property="regiAddress" />
+    <result column="RESI_NUMBER" jdbcType="VARCHAR" property="resiNumber" />
+    <result column="RESI_VALID_DATE" jdbcType="DATE" property="resiValidDate" />
+    <result column="LIVE_ADDRESS" jdbcType="VARCHAR" property="liveAddress" />
+    <result column="LIVE_ZIP" jdbcType="CHAR" property="liveZip" />
+    <result column="EDU_LEVEL" jdbcType="CHAR" property="eduLevel" />
+    <result column="WORK_START_DATE" jdbcType="DATE" property="workStartDate" />
+    <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+    <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
+    <result column="INIT_FLAG" jdbcType="CHAR" property="initFlag" />
+    <result column="DETAIL_RATE" jdbcType="VARCHAR" property="detailRate" />
+    <result column="INSERT_USER" jdbcType="CHAR" property="insertUser" />
+    <result column="INSERT_TIME" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="UPDATE_USER" jdbcType="CHAR" property="updateUser" />
+    <result column="LAST_PASSWORD_RESET_DATE" jdbcType="TIMESTAMP" property="lastPasswordResetDate" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="DELETE_FLAG" jdbcType="BIT" property="deleteFlag" />
+  </resultMap>
+
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.account.mapper.ModuleExMapper">
+	<resultMap id="BaseResultMap" type="com.guige.account.pojo.entity.Module"
+		extends="com.guige.account.mapper.ModuleMapper.BaseResultMap">
+	</resultMap>
+	<resultMap id="RoleModResultMap" type="com.guige.account.pojo.entity.RoleMod"
+		extends="com.guige.account.mapper.RoleModMapper.BaseResultMap">
+	</resultMap>
+	<select id="findModules" resultMap="BaseResultMap">
+		SELECT
+		m.*
+		FROM
+		t_module m
+		<trim prefix="where" prefixOverrides="and">
+			<if test="uuid != null">
+				AND m.uuid = #{uuid,jdbcType=CHAR}
+			</if>
+			<if test="serviceCd != null">
+				AND m.service_cd = #{serviceCd,jdbcType=VARCHAR}
+			</if>
+			<if test="moduleCd != null">
+				AND m.module_cd = #{moduleCd,jdbcType=VARCHAR}
+			</if>
+			<if test="moduleName != null">
+				AND m.module_name = #{moduleName,jdbcType=VARCHAR}
+			</if>
+			<if test="moduleUuids != null">
+				m.uuid in
+				<foreach collection="moduleUuids" item="moduleUuid" index="index"
+					open="(" close=")" separator=",">
+					#{moduleUuid}
+				</foreach>
+			</if>
+			<if test="deleteFlag != null">
+				AND m.delete_flag = #{deleteFlag,jdbcType=BIT},
+			</if>
+		</trim>
+	</select>
+	<select id="findModulesByUserOrRole" resultMap="BaseResultMap">
+		SELECT
+		m.*
+		FROM
+		t_module m
+		LEFT JOIN t_role_mod rm ON m.uuid =
+		rm.module_uuid
+		AND rm.delete_flag =
+		'0'
+		LEFT JOIN t_role r ON r.uuid =
+		rm.role_uuid
+		AND
+		r.delete_flag = '0'
+		LEFT JOIN t_user_role ur on r.uuid =
+		ur.role_uuid
+		AND
+		ur.delete_flag = '0'
+		<trim prefix="where" prefixOverrides="and">
+			<if test="compUuid != null">
+				AND (rm.comp_uuid = #{compUuid,jdbcType=CHAR}
+				OR rm.comp_uuid='GLOBAL')
+			</if>
+			<if test="roleUuid != null">
+				AND (rm.role_uuid = #{roleUuid,jdbcType=CHAR}
+				OR rm.comp_uuid='GLOBAL')
+			</if>
+			<if test="userUuid != null">
+				AND ur.user_uuid = #{userUuid,jdbcType=CHAR}
+			</if>
+			<if test="enable != null">
+				AND rm.enable = #{enable}
+			</if>
+			AND m.delete_flag = '0'
+		</trim>
+	</select>
+	<select id="checkModule" resultMap="BaseResultMap">
+		SELECT
+		m.*
+		FROM
+		t_module m
+		<trim prefix="where" prefixOverrides="OR">
+			<if test="serviceCd != null">
+				OR m.service_cd = #{serviceCd,jdbcType=VARCHAR}
+			</if>
+			<if test="moduleCd != null">
+				OR m.module_cd = #{moduleCd,jdbcType=VARCHAR}
+			</if>
+			<if test="moduleName != null">
+				OR m.module_name = #{moduleName,jdbcType=VARCHAR}
+			</if>
+		</trim>
+	</select>
+	<update id="deleteModule">
+		update t_module
+		<set>
+			delete_flag = '1',
+			delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+			delete_user = #{deleteUser,jdbcType=CHAR},
+			update_time = #{updateTime,jdbcType=TIMESTAMP},
+			update_user = #{updateUser,jdbcType=CHAR}
+		</set>
+		where uuid in
+		<foreach collection="moduleUuids" item="moduleUuid" index="index"
+			open="(" close=")" separator=",">
+			#{moduleUuid}
+		</foreach>
+	</update>
+	
+	<select id="findModulesByUser" resultMap="RoleModResultMap">
+		SELECT
+		rm.*, m.service_cd, m.module_cd
+		FROM
+		t_role_mod rm
+		INNER JOIN t_user_role ur on rm.role_uuid =	ur.role_uuid
+		AND
+		ur.delete_flag = '0'
+		INNER JOIN t_module m ON m.uuid = rm.module_uuid
+		AND m.delete_flag = '0'
+		<trim prefix="where" prefixOverrides="and">
+			<if test="compUuid != null">
+				AND ur.comp_uuid = #{compUuid,jdbcType=CHAR}
+				AND (rm.comp_uuid = #{compUuid,jdbcType=CHAR}
+				OR rm.comp_uuid='GLOBAL')
+			</if>
+			<if test="userUuid != null">
+				AND ur.user_uuid = #{userUuid,jdbcType=CHAR}
+			</if>
+			AND rm.delete_flag = '0'
+		</trim>
+	</select>
+	
+</mapper>

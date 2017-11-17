@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guige.parser.mapper.ReportAssetsAllocationMapper" >
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.ReportAssetsAllocation" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" property="uuid" jdbcType="CHAR" />
+    <result column="REPORT_UUID" property="reportUuid" jdbcType="CHAR" />
+    <result column="SHEET_UUID" property="sheetUuid" jdbcType="CHAR" />
+    <result column="PROD_CD" property="prodCd" jdbcType="VARCHAR" />
+    <result column="PROD_NAME" property="prodName" jdbcType="VARCHAR" />
+    <result column="PROD_TYPE" property="prodType" jdbcType="VARCHAR" />
+    <result column="PROD_CLASS" property="prodClass" jdbcType="VARCHAR" />
+    <result column="PLAN_TYPE" property="planType" jdbcType="VARCHAR" />
+    <result column="BE_ENTRUSTED" property="beEntrusted" jdbcType="VARCHAR" />
+    <result column="TRUSTEESHIP" property="trusteeship" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="DATE" />
+    <result column="NET_ASSET_VALUE_END" property="netAssetValueEnd" jdbcType="DECIMAL" />
+    <result column="FINAL_ASSET_SHARE" property="finalAssetShare" jdbcType="INTEGER" />
+    <result column="FINAL_UNIT_VALUE" property="finalUnitValue" jdbcType="DECIMAL" />
+    <result column="LIQUID_ASSETS_PCT" property="liquidAssetsPct" jdbcType="DOUBLE" />
+    <result column="BANK_DEPOSIT_PCT" property="bankDepositPct" jdbcType="DOUBLE" />
+    <result column="CENTRAL_BANK_NOTE_PCT" property="centralBankNotePct" jdbcType="DOUBLE" />
+    <result column="ONE_YEAR_FIXED_DEPOSIT_PCT" property="oneYearFixedDepositPct" jdbcType="DOUBLE" />
+    <result column="BUY_BACK_PCT" property="buyBackPct" jdbcType="DOUBLE" />
+    <result column="MONEY_MARKET_FUND_PCT" property="moneyMarketFundPct" jdbcType="DOUBLE" />
+    <result column="MONETARY_PENSION_PRODUCTS_PCT" property="monetaryPensionProductsPct" jdbcType="DOUBLE" />
+    <result column="LIQUIDATION_RESERVE_FUND_PCT" property="liquidationReserveFundPct" jdbcType="DOUBLE" />
+    <result column="STOCK_CLEARING_PCT" property="stockClearingPct" jdbcType="DOUBLE" />
+    <result column="OTHER_LIQUIDITY_ASSETS_PCT" property="otherLiquidityAssetsPct" jdbcType="DOUBLE" />
+    <result column="FIXED_INCOME_ASSETS_PCT" property="fixedIncomeAssetsPct" jdbcType="DOUBLE" />
+    <result column="ONE_YEAR_UP_FIXED_DEPOSIT_PCT" property="oneYearUpFixedDepositPct" jdbcType="DOUBLE" />
+    <result column="NATIONAL_DEBT_PCT" property="nationalDebtPct" jdbcType="DOUBLE" />
+    <result column="FINANCIAL_DEBT_PCT" property="financialDebtPct" jdbcType="DOUBLE" />
+    <result column="CORPORATE_DEBT_PCT" property="corporateDebtPct" jdbcType="DOUBLE" />
+    <result column="SHORT_TERM_FINANCING_BOND_PCT" property="shortTermFinancingBondPct" jdbcType="DOUBLE" />
+    <result column="MEDIUM_TERM_NOTE_PCT" property="mediumTermNotePct" jdbcType="DOUBLE" />
+    <result column="CONVERTIBLE_DEBT_PCT" property="convertibleDebtPct" jdbcType="DOUBLE" />
+    <result column="BOND_FUND_PCT" property="bondFundPct" jdbcType="DOUBLE" />
+    <result column="INSURANCE_PRODUCTS_PCT" property="insuranceProductsPct" jdbcType="DOUBLE" />
+    <result column="COMP_BANK_PRODUCTS_PCT" property="compBankProductsPct" jdbcType="DOUBLE" />
+    <result column="TRUST_PRODUCTS_PCT" property="trustProductsPct" jdbcType="DOUBLE" />
+    <result column="SPECIFIC_ASSET_PLAN_PCT" property="specificAssetPlanPct" jdbcType="DOUBLE" />
+    <result column="INFRASTRUCTURE_DEBT_PLAN_PCT" property="infrastructureDebtPlanPct" jdbcType="DOUBLE" />
+    <result column="FIXED_INCOME_PENSION_PCT" property="fixedIncomePensionPct" jdbcType="DOUBLE" />
+    <result column="MIXED_PENSION_PCT" property="mixedPensionPct" jdbcType="DOUBLE" />
+    <result column="OTHER_FIXED_INCOME_PCT" property="otherFixedIncomePct" jdbcType="DOUBLE" />
+    <result column="EQUITY_ASSETS_PCT" property="equityAssetsPct" jdbcType="DOUBLE" />
+    <result column="SHARES_PCT" property="sharesPct" jdbcType="DOUBLE" />
+    <result column="EQUITY_OR_HYBRID_FUNDS_PCT" property="equityOrHybridFundsPct" jdbcType="DOUBLE" />
+    <result column="INVESTMENT_ADN_INSURANCE_PCT" property="investmentAdnInsurancePct" jdbcType="DOUBLE" />
+    <result column="WARRANT_PCT" property="warrantPct" jdbcType="DOUBLE" />
+    <result column="EQUITY_INSTRUMENTS_PCT" property="equityInstrumentsPct" jdbcType="DOUBLE" />
+    <result column="EQUITY_PENSION_PCT" property="equityPensionPct" jdbcType="DOUBLE" />
+    <result column="OTHER_EQUITY_ASSETS_PCT" property="otherEquityAssetsPct" jdbcType="DOUBLE" />
+    <result column="OTHER_ASSETS_PCT" property="otherAssetsPct" jdbcType="DOUBLE" />
+    <result column="REMARKS" property="remarks" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

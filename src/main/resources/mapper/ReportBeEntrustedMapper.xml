@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guige.parser.mapper.ReportBeEntrustedMapper">
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.ReportBeEntrusted">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" jdbcType="CHAR" property="uuid" />
+    <result column="REPORT_UUID" jdbcType="CHAR" property="reportUuid" />
+    <result column="SHEET_UUID" jdbcType="CHAR" property="sheetUuid" />
+    <result column="PROJECT_NAME" jdbcType="VARCHAR" property="projectName" />
+    <result column="PLAN_NUM" jdbcType="INTEGER" property="planNum" />
+    <result column="COMP_NUM" jdbcType="INTEGER" property="compNum" />
+    <result column="EMPL_NUM" jdbcType="INTEGER" property="emplNum" />
+    <result column="ENTRUSTED_FUND" jdbcType="DECIMAL" property="entrustedFund" />
+    <result column="PENSION_ASSETS" jdbcType="DECIMAL" property="pensionAssets" />
+    <result column="TRUSTEE_FEE" jdbcType="DECIMAL" property="trusteeFee" />
+  </resultMap>
+
+</mapper>

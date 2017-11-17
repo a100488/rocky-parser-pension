@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guige.parser.mapper.ReportAccountMapper">
+  <resultMap id="BaseResultMap" type="com.guige.parser.entity.ReportAccount">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="UUID" jdbcType="CHAR" property="uuid" />
+    <result column="REPORT_UUID" jdbcType="CHAR" property="reportUuid" />
+    <result column="SHEET_UUID" jdbcType="CHAR" property="sheetUuid" />
+    <result column="PROJECT_NAME" jdbcType="VARCHAR" property="projectName" />
+    <result column="COMP_ACCOUNT_NUM" jdbcType="INTEGER" property="compAccountNum" />
+    <result column="PERSION_ACCOUNT__NUM" jdbcType="INTEGER" property="persionAccountNum" />
+    <result column="ACCOUNT_BALANCE_NUM" jdbcType="INTEGER" property="accountBalanceNum" />
+    <result column="ACCOUNT_BALANCE" jdbcType="DECIMAL" property="accountBalance" />
+    <result column="CURRENT_PAYMENT" jdbcType="DECIMAL" property="currentPayment" />
+    <result column="CURRENT_NEW_PAYMENT" jdbcType="DECIMAL" property="currentNewPayment" />
+    <result column="RECIPIENTS_ONCE" jdbcType="INTEGER" property="recipientsOnce" />
+    <result column="RECIPIENTS_STAGES" jdbcType="INTEGER" property="recipientsStages" />
+    <result column="RECEIVE_AMOUNT_ONCE" jdbcType="DECIMAL" property="receiveAmountOnce" />
+    <result column="RECEIVE_AMOUNT_STAGES" jdbcType="DECIMAL" property="receiveAmountStages" />
+    <result column="MANAGE_ACCOUNT_FEE" jdbcType="DECIMAL" property="manageAccountFee" />
+  </resultMap>
+
+</mapper>

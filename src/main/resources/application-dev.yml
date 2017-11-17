@@ -1,0 +1,199 @@
+server:
+  port: 9004
+  tomcat:
+    #tomcat最大线程数，默认为200
+    max-threads: 800
+    # tomcat的URI编码
+    uri-encoding: utf-8
+    #tomcat日志
+    #accesslog:
+    #存放Tomcat的日志、Dump等文件的临时文件夹，默认为系统的tmp文件夹（如：C:\Users\Songaw\AppData\Local\Temp）
+    basedir: C:\resources\java6\doctest\tmp
+
+
+#################################
+## DATASOURCE
+#################################
+
+spring:
+  messages:
+    basename: message/message
+  management:
+    context_path: /
+
+  datasource:
+      url: jdbc:mysql://localhost:3306/rock-parser-pension?autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driverClassName: com.mysql.jdbc.Driver
+      initialSize: 1
+      maxActive: 30
+      minIdle: 5
+      maxWaite: 600000
+      testOnBorrow: true
+      test-while-idle: true
+  #设置LocalDateTime、LocalDate等日期类型支持序列化
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  mvc:
+      static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/static/html/,file:C:/resources/java6/doctest/guigefile
+  http:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+      enabled: true
+# JWT
+jwt:
+  salt: guige
+  header: token
+  secret: mySecret
+  expiration: 604800
+  tokenHead: "Bearer "
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+      register: "auth/register"
+
+#使用 spring.mvc.static-path-pattern 可以重新定义pattern，如修改为 /myres/** ，则访问static 等目录下的fengjing.jpg文件应该为 http://localhost:8080/myres/fengjing.jpg ，修改之前为 http://localhost:8080/fengjing.jpg
+#使用 spring.resources.static-locations 可以重新定义 pattern 所指向的路径，支持 classpath: 和 file: （上面已经做过说明）
+#注意 spring.mvc.static-path-pattern 只可以定义一个，目前不支持多个逗号分割的方式。
+#    static-locations: classpath:/static/   ## 默认值为 classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+# LOGGING
+logging:
+  level:
+    root: info
+    com:
+      guige: debug
+    org: error
+    java:
+      sql: debug
+  file: parser.log
+  path: /
+
+parser:
+  uploadPath: C:/resources/java6/doctest/guigefile
+
+  parserConfigList:
+    - id: 1
+      sheetIndex: 0
+      startIndex: 0
+      specials:
+        - key: title #封面标题
+          sheetIndex: 0
+          rowIndex: 5
+          colIndex: 1
+        - key: compName #公司名称
+          sheetIndex: 0
+          rowIndex: 17
+          colIndex: 1
+        - key: date #日期
+          sheetIndex: 0
+          rowIndex: 19
+          colIndex: 5
+        - key: date #日期
+          sheetIndex: 0
+          rowIndex: 19
+          colIndex: 6
+        - key: date #日期
+          sheetIndex: 0
+          rowIndex: 19
+          colIndex: 7
+    - id: 2 # 解析受托人
+      #从第几页开始 页-1   0页开始
+      sheetIndex: 3
+      #从第几行开始 行-1   0行开始
+      startIndex: 5
+      titles:
+        - key: projectName #项目名称
+          valueIndex: 0
+        - key: planNum #计划数
+          valueIndex: 2
+        - key: compNum #企业数
+          valueIndex: 3
+        - key: emplNum #职工数
+          valueIndex: 4
+        - key: entrustedFund #受托管理基金金额(万元)
+          valueIndex: 5
+        - key: pensionAssets #计划直投养老金产品资产净值(万元)
+          valueIndex: 6
+        - key: trusteeFee #受托管理费(万元)
+          valueIndex: 7
+      #特殊解析
+      specials:
+        - key: fillingUnit #填报单位
+          sheetIndex: 3
+          rowIndex: 1
+          colIndex: 0
+        - key: headUnit #单位负责人
+          sheetIndex: 3
+          rowIndex: 9
+          colIndex: 2
+        - key: formHolder #填表人
+          sheetIndex: 3
+          rowIndex: 9
+          colIndex: 5
+        - key: reportDate #报表报出时间
+          sheetIndex: 3
+          rowIndex: 9
+          colIndex: 8
+        - key: reportDeadline #报表截止时间
+          sheetIndex: 3
+          rowIndex: 1
+          colIndex: 8
+    - id: 3 # 帐管人
+      #从第几页开始 页-1   0页开始
+      sheetIndex: 5
+      #从第几行开始 行-1   0行开始
+      startIndex: 6
+      titles:
+        - key: projectName #项目名称
+          valueIndex: 0
+        - key: compAccountNum #企业账户数
+          valueIndex: 2
+        - key: persionAccountNum #个人账户数
+          valueIndex: 3
+        - key: accountBalanceNum #保留账户数
+          valueIndex: 4
+        - key: accountBalance #保留账户资金余额
+          valueIndex: 5
+        - key: currentPayment #本期缴费(万元)
+          valueIndex: 6
+        - key: currentNewPayment #（其中）本期新增缴费(万元)
+          valueIndex: 7
+        - key: recipientsOnce #领取人数(人)一次性
+          valueIndex: 8
+        - key: recipientsStages #领取人数(人)分期
+          valueIndex: 9
+        - key: receiveAmountOnce #领取金额(万元)一次性
+          valueIndex: 10
+        - key: receiveAmountStages #领取金额(万元)分期
+          valueIndex: 11
+        - key: manageAccountFee #账户管理费（万元）
+          valueIndex: 12
+      #特殊解析
+      specials:
+        - key: fillingUnit #填报单位
+          sheetIndex: 5
+          rowIndex: 1
+          colIndex: 0
+        - key: headUnit #单位负责人
+          sheetIndex: 5
+          rowIndex: 12
+          colIndex: 1
+        - key: formHolder #填表人
+          sheetIndex: 3
+          rowIndex: 12
+          colIndex: 3
+        - key: reportDate #报表报出时间
+          sheetIndex: 3
+          rowIndex: 12
+          colIndex: 7
+        - key: reportDeadline #报表截止时间
+          sheetIndex: 3
+          rowIndex: 12
+          colIndex: 7
+
